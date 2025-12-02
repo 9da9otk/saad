@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saad Fuhaid Portfolio</title>
+
+    <!-- تطبيق الثيم قبل تشغيل React لمنع الوميض -->
+    <script>
+      (function () {
+        try {
+          const saved = localStorage.getItem('theme'); // 'light' | 'dark' | 'system'
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+          if (saved === 'dark' || (!saved && prefersDark)) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {
+          console.warn('Theme pre-init error', e);
+        }
+      })();
+    </script>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              title: ['Tajawal', 'sans-serif'], // للعناوين
+              body: ['Cairo', 'sans-serif'],    // للنصوص
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- الخطوط: تجوال + كايرو -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Cairo:wght@300;400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* كايرو للنصوص الافتراضية */
+      html,
+      body {
+        font-family: 'Cairo', sans-serif !important;
+      }
+
+      /* تجوال للعناوين وكل ما عليه .title-text */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      .title-text {
+        font-family: 'Tajawal', sans-serif !important;
+      }
+
+      /* Scrollbar في الوضعين */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f5f9; /* Slate 100 */
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1; /* Slate 300 */
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8; /* Slate 400 */
+      }
+
+      .dark ::-webkit-scrollbar-track {
+        background: #020617; /* Slate 950 تقريباً */
+      }
+      .dark ::-webkit-scrollbar-thumb {
+        background: #334155; /* Slate 700 */
+      }
+      .dark ::-webkit-scrollbar-thumb:hover {
+        background: #475569; /* Slate 600 */
+      }
+    </style>
+    <script type="module" crossorigin src="/saad/assets/index-DMlTRtuf.js"></script>
+  </head>
+  <body class="bg-slate-50 dark:bg-slate-900">
+    <div id="root"></div>
+
+    <!-- نقطة دخول Vite/React -->
+  </body>
+</html>
