@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
       
-      {/* Background Gradient Blobs */}
+      {/* Background Effects */}
       <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-emerald-400/20 dark:bg-emerald-600/20 rounded-full blur-3xl opacity-50 animate-pulse"></div>
       <div className="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-blue-400/20 dark:bg-blue-600/20 rounded-full blur-3xl opacity-50 animate-pulse delay-1000"></div>
 
@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
           {/* Profile Image */}
           <div className="w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden border-4 border-emerald-500 shadow-xl shadow-emerald-500/20 bg-white dark:bg-slate-800">
             <img
-              src={`${import.meta.env.BASE_URL}profile.jpg`}
+              src="/profile.jpg"
               alt="Saad Fuhaid"
               className="w-full h-full object-cover"
             />
@@ -59,7 +59,6 @@ const Hero: React.FC = () => {
 
           {/* Contact Icons */}
           <div className="flex flex-wrap justify-center gap-6 mb-12">
-
             {/* LinkedIn */}
             <motion.a
               href="https://www.linkedin.com/in/s3dsu"
@@ -105,20 +104,38 @@ const Hero: React.FC = () => {
             </motion.a>
           </div>
 
-          {/* CV Download Button */}
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href={`${import.meta.env.BASE_URL}cv.pdf`}
-            target="_blank"
-            className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-full font-bold shadow-lg shadow-emerald-600/30 transition-all inline-block"
-          >
-            {t.hero.resumeBtn}
-          </motion.a>
+          {/* CV Buttons */}
+          <div className="flex justify-center gap-4 mt-6">
+
+            {/* زر استعراض السيرة */}
+            <motion.a
+              href="/cv.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-full font-bold shadow-lg shadow-emerald-600/30 transition-all"
+            >
+              استعراض السيرة الذاتية
+            </motion.a>
+
+            {/* زر تحميل السيرة */}
+            <motion.a
+              href="/cv.pdf"
+              download="Saad-Fuhaid-CV.pdf"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-8 py-3 rounded-full font-bold border border-slate-300 dark:border-slate-600 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all"
+            >
+              تحميل السيرة الذاتية
+            </motion.a>
+
+          </div>
+
         </motion.div>
       </div>
 
-      {/* Animated Arrow */}
+      {/* Arrow Animation */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 10, 0] }}
